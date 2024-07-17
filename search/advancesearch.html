@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Search</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div id="links"><a href="imagesearch.html" id="imagesearch">Image Search</a><a href="index.html" id="googlesearch">Google Search</a></div>
+        <div id="adgoogle"><img src="googleimg.png" id="adgoogleimg"></div>
+        <div id="adsearch">Advance Search</div>
+        <hr>
+        <div><p id="findtext">Find pages with...    <b id="boldtext">To do this in the search box.</b></p></div>
+        <form action="https://www.google.com/search">
+            <label>all these words:</label><input type="text" name="as_q" class="box" id="box1"><text>Type the important words: tri-colour rat terrier</text><br>
+            <label>this exact word or phrase:</label><input type="text" name="as_epq" class="box" id="box2"><text>Put exact words in quotes: "rat terrier"</text><br>
+            <label>any of these words:</label><input type="text" name="as_oq" class="box" id="box3"><text>Type OR between all the words you want: miniature OR standard</text><br>
+            <label>none of these words:</label><input type="text" name="as_eq" class="box" id="box4"><text>Put a minus sign just before words that you don't want: -rodent, -"Jack Russell"</text><br>
+            <input type="submit" value="Advance Search" id="adsubmit">
+        </form>
+    </body>
+    

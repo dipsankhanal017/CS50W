@@ -1,0 +1,138 @@
+*{
+    background-color: white;
+}
+
+#google{
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 270px;
+    height: 90px;
+
+}
+
+#search{
+    display: block;
+    width: 500px;
+    height: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+    border: 5px;
+    border-style: solid;
+    border-width: 0.005px;
+    border-color: rgb(192, 192, 192);
+    border-radius: 50px;
+    color: black;
+    padding-left: 10px;
+}
+
+#buttons{
+    width: 260px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+}
+#lucky{
+    margin-left: 20px;
+}
+#searchbutton, #lucky{
+    color: black;
+    background-color: rgb(238, 238, 238)    ;
+    height: 40px;
+    border-style: solid;
+    border-color: rgb(238, 238, 238);
+    border-width: 1.5px;
+    border-radius: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+#searchbutton:hover, #lucky:hover{
+    border-color: rgb(187, 187, 187);
+    transform: scale(1.001);
+}
+#search:hover{
+    transform: scale(1.02);
+    border-color: rgb(192, 192, 192);
+}
+#links{
+    margin-top: 20px;
+}
+#imagesearch{
+    margin-left: 1050px;
+}
+#advancesearch, #googlesearch{
+    margin-left: 30px;
+}
+#imagesearch, #advancesearch, #googlesearch{
+    font-family: sans-serif;
+    font-size: 14px;
+    color: black;
+    text-decoration: none;
+}
+#imagesearch:hover, #advancesearch:hover, #googlesearch:hover{
+    text-decoration: underline;
+}
+
+h7{
+    margin-left: 750px;
+    color: rgb(42, 152, 189);
+    font-size: 18px;
+}
+
+#adgoogleimg{
+    height: 30px;
+    margin-left: 15px;
+}
+hr{border-color: rgb(240, 240, 240);}
+#adsearch{
+    color: rgb(230, 67, 67);
+    font-size: 23px;
+    margin-left: 30px;
+    margin-top: 40px;
+}
+
+#findtext{
+    font-size: 18px;
+    color: black;
+
+}
+#boldtext{
+    margin-left: 680px;
+    color: rgb(117, 117, 117);
+}
+label{
+    color: rgb(131, 131, 131);
+}
+#findtext, label{
+    margin-left: 30px;
+    }
+
+.box{
+    width: 600px;
+    height: 25px;
+    background-color: white;
+    margin-top: 10px;
+    border-color: rgb(214, 214, 214);
+    border-width: 0.4px;
+}
+#adsubmit{
+    background-color: blue;
+    color: white;
+    margin-left: 600px;
+    margin-top: 40px;
+    padding: 8px;
+    border-radius: 6px;
+}
+
+#box1{margin-left: 90px;}
+#box2{margin-left: 25px;}
+#box3{margin-left: 65px;}
+#box4{margin-left: 57px;}
+
+text{
+    margin-left: 20px;
+    color: rgb(112, 112, 112);
+    font-size: 13px;
+    font-family: sans-serif;
+}
