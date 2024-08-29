@@ -1,0 +1,32 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Create New Page
+{% endblock %}
+
+{% block body %}
+    <form method="POST">
+        {% csrf_token %}
+        {% if message %}
+        <lable>Title</lable><br>
+        <input type="text" name="title" value="{{title}}" required><br>  
+        <div style="color: red;">{{message}}</div><br>
+        <lable>Markdown Content</lable><br>
+        <textarea name="content" required>{{content}}</textarea>
+        <div style="color: red;">{{message1}}</div><br>
+        {% else %}
+        <lable>Title</lable><br>
+        <input type="text" name="title" required><br>
+        <lable>Markdown Content</lable><br>
+        <textarea name="content" required></textarea><br>
+        {% endif %}
+        <input type="submit" value="Create">
+    </form>    
+    <style>
+        form textarea {
+            width: 90%;
+            height: 500px; 
+        }
+        
+    </style>
+{% endblock %}

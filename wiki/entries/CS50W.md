@@ -1,0 +1,3 @@
+# CS50W: Web Programming with Python and JavaScript
+
+CS50W is an advanced course offered by Harvard University that dives into the world of web development using [Python](/wiki/python) and [JavaScript](/wiki/javascript). The course covers fundamental web technologies such as [HTML](/wiki/html), [CSS](/wiki/css), and JavaScript, along with frameworks like [Django](/wiki/django), [React](/wiki/react), and [Flask](/wiki/flask). Through a series of hands-on projects, students learn to design, develop, and deploy fully functional web applications. Whether you're looking to build dynamic websites, work with databases, or implement complex user authentication, CS50W provides the essential tools and knowledge to succeed in the field of web programming.
