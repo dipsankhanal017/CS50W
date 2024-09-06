@@ -1,0 +1,50 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+    <div class="container mt-5">
+        <h2>Add New Item</h2>
+        <form method="POST">
+            {% csrf_token %}
+            <!-- Title Field -->
+            <div class="form-group">
+                <label for="title">Title</label>
+                <input type="text" class="form-control" id="title" placeholder="Enter title" name="title">
+            </div>
+
+            <!-- Description Field -->
+            <div class="form-group">
+                <label for="description">Description</label>
+                <textarea class="form-control" id="description" rows="3" placeholder="Enter description" name="description"></textarea>
+            </div>
+
+            <!-- Category Field -->
+            <div class="form-group">
+                <label for="category">Category</label>
+                <select class="form-control" id="category" name="category">
+                    {% for category in categories %}
+                    <option value="{{category.name}}">{{category.name}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <!-- Starting Bid Field -->
+            <div class="form-group">
+                <label for="startingBid">Starting Bid</label>
+                <input type="number" step="0.01" class="form-control" id="startingBid" placeholder="Enter starting bid" name="startingbid">
+            </div>
+
+            <!-- Image URL Field -->
+            <div class="form-group">
+                <label for="imageUrl">Image URL</label>
+                <input type="url" class="form-control" id="imageUrl" placeholder="Enter image URL" name="imageurl">
+            </div>
+
+            <!-- Owner Name Field -->
+                <input type="text" value="{{username}}" name="ownername" hidden>
+
+            <!-- Submit Button -->
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+
+{% endblock body %}

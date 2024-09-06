@@ -1,0 +1,117 @@
+{% extends "auctions/layout.html" %}
+
+{% block title %}{{product.title}}{% endblock title %}
+
+
+{% block body %}
+{% if message %}
+    {% if product.soldto.username == username %}
+    <div class="alert alert-success" role="alert">
+        Congratulation! You won the bids
+      </div> 
+    {% elif username == product.owner.username %}
+    <div class="alert alert-success" role="alert">
+        Success! Product is now sold to {{product.soldto}} for ${{bids.current_bid}}
+      </div>
+    {% else %}
+    <div class="alert alert-success" role="alert">
+        This product has already been sold to {{product.soldto}} for ${{bids.current_bid}}
+      </div>      
+    {% endif %}
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-6">
+                <img src="{{ product.imageurl }}" class="img-fluid" alt="Product Image">
+            </div>
+            <div class="col-md-6">
+                <h2>{{ product.title }}</h2>
+                <p class="text-muted">{{ product.category }}</p>
+                <p>{{ product.description }}</p>
+                {% if watchlist %}
+            <form method="POST">
+                {% csrf_token %}
+                <input type="hidden" name="removewatchlist" value="true">
+                <button type="submit" class="btn btn-danger">Remove from watchlist</button>
+            </form>
+
+            {% endif %}
+            </div>
+        </div>
+    </div>
+    
+{% else %}
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-6">
+            <img src="{{ product.imageurl }}" class="img-fluid" alt="Product Image">
+        </div>
+        <div class="col-md-6">
+            <h2>{{ product.title }}</h2>
+            <p class="text-muted">{{ product.category }}</p>
+            <p>{{ product.description }}</p>
+            <h4>Highest Bid: ${{ bids.current_bid }}</h4>
+            
+            {% if watchlist %}
+            <form method="POST">
+                {% csrf_token %}
+                <input type="hidden" name="removewatchlist" value="true">
+                <button type="submit" class="btn btn-danger">Remove from watchlist</button>
+            </form>
+            {% else %}
+            <form method="POST" >
+                {% csrf_token %}
+                <input type="hidden" name="addwatchlist" value="true">
+                <button type="submit" class="btn btn-info">Add to watchlist</button>
+            </form>
+            {% endif %}
+    <div class="mt-2">
+        {% if isowner %}
+        <form method="POST">
+            {% csrf_token %}
+        <input type="hidden" name="closebids" value="true">
+        <input type="text" name="newowner" value="{{bids.current_bidder.username}}" hidden>
+        <button type="submit" class="btn btn-danger">Close bid</button>
+        </form>
+    {% else %}
+        <form method = "POST" >
+        {% csrf_token %}
+        <input type="hidden" name="submit_bid" value="true">
+        <input type="number" name="bid-amount" min="{{minimum}}" step="0.01" required>
+        <button type="submit" class="btn btn-primary">Place bid</button>
+        </form>
+    {% endif %}
+    </div>           
+    </div>
+    </div>
+</div>
+{% endif %}
+
+<h1>Comments</h1><br><br>
+{% for comment in comments %}
+<div class="media ml-3" >
+    <div class="media-body">
+        <h5 style="display: inline; margin: 0; margin-right: 5px;">{{comment.user}}</h5><h7 style="display: inline; margin: 0;"> on {{comment.timestamp}}</h7><br>
+        {{comment.comment}}
+    </div>
+  </div><br>
+{% endfor %}
+
+    <div class="container mx-3">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Leave a Comment</h5>
+                <form method ="POST">
+                    {% csrf_token %}
+                    <input type="hidden" name="submit_comment" value="true">
+                    <div class="form-group">
+                        <input type="text" name="title" value="{{product.title}}" hidden>
+                        <textarea class="form-control" id="comment" rows="3" name= "comment"placeholder="Write your comment here..."></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Comment</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+{% endblock body %}
+
